@@ -1,28 +1,45 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import { connect } from 'react-redux';
 import './App.css';
 
 class App extends Component {
+
+  state = {
+    search: ''
+  }
+
+  //GET SEARCHED BOOKS
+  handleSearch = (event) => {
+    console.log('in search');
+    this.setState({
+      search: event.target.value
+    })
+    console.log('handleSearch:', this.state);
+  }
+
+  handleClick = () => {
+    console.log('in handleClick');
+    this.props.dispatch({
+      type: 'GET_BOOKS_SEARCHED',
+      payload: this.state.search
+    })
+    console.log('handleClick payload:', this.state.search);
+
+  }
+
+
+
+
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+        <h2>book getter test</h2>
+        <input type="text" placeholder="search book title or author" onChange={this.handleSearch} />
+        <button onClick={this.handleClick}>search</button>
+        
       </div>
     );
   }
 }
 
-export default App;
+export default connect() (App);
