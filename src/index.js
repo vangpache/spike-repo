@@ -35,7 +35,7 @@ function* getBooks(action) {
 const books = (state = [], action) => {
     switch (action.type) {
         case 'SET_BOOKS':
-            return action.payload;
+            return action.payload.GoodreadsResponse.search.results.work;
         default:
             return state
     }
