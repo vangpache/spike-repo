@@ -24,7 +24,7 @@ function* getBooks(action) {
         console.log('in getBooks:', response);
         yield put({
             type: 'SET_BOOKS',
-            payload: response.data
+            payload: response.data.GoodreadsResponse.search.results.work
         })
     } catch (error) {
         console.log('error in getBooks');
@@ -35,7 +35,7 @@ function* getBooks(action) {
 const books = (state = [], action) => {
     switch (action.type) {
         case 'SET_BOOKS':
-            return action.payload.GoodreadsResponse.search.results.work;
+            return action.payload;
         default:
             return state
     }

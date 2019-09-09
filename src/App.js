@@ -36,10 +36,28 @@ class App extends Component {
         <h2>book getter test</h2>
         <input type="text" placeholder="search book title or author" onChange={this.handleSearch} />
         <button onClick={this.handleClick}>search</button>
+
+        {this.props.test.map(each => {
+          return (
+            <>
+          <p>{each.best_book.title._text}</p>
+          <img src={each.best_book.image_url._text} alt="image of book" />
+            </>
+          )
+        })}
+
+        {/* {JSON.stringify(this.props.test)} */}
         
       </div>
     );
   }
 }
 
-export default connect() (App);
+const mapStateToProps = reduxStore => {
+  return{
+    test: reduxStore.books
+  }
+}
+
+
+export default connect(mapStateToProps) (App);
