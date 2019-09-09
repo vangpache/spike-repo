@@ -14,11 +14,11 @@ router.get('/:search', (req, res) => {
     axios.get(`https://www.goodreads.com/search.xml?key=${process.env.API_KEY}&q=${req.params.search}`)
         .then((result) => {
             console.log('in GET goodreads:', result);
-            let xml = result;
-            let options = {
-                compact: true}
-            result = convert.xml2json(xml, options);
-            res.send(result.data);
+            let xml = result.data;
+            result = convert.xml2json(xml, { compact: true, spaces: 4 });
+            console.log('in GET goodreads result after xml:', result);
+            
+            res.send(result);
         }).catch((error) => {
             console.log('in GET goodreads ERROR:', error);
         })
