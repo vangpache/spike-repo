@@ -3,27 +3,16 @@ import { connect } from 'react-redux';
 import './App.css';
 import ImageUpload from './components/ImageUpload/ImageUpload';
 import Moment from 'react-moment';
-// import SweetAlert from 'sweetalert2-react';
-// import { withSwalInstance } from 'sweetalert2-react';
 import swal from '@sweetalert/with-react';
 import { withStyles } from '@material-ui/styles';
 import { Card, CardContent, Grid, Paper } from '@material-ui/core';
 
 
-// const SweetAlert = withSwalInstance(swal);
 
 
 
 
 class App extends Component {
-
-  // componentDidMount() {
-  //   swal(
-  //     <div>
-  //       <h1>Hello!</h1>
-  //       <p>I am a React component inside a SweetAlert modal.</p>
-  //     </div>
-  //   )}
 
   state = {
     search: '',
@@ -39,6 +28,7 @@ class App extends Component {
     console.log('handleSearch:', this.state);
   }
 
+  //SWEETALERT TO SEARCH GOODREADS DB
   handleClick = () => {
     console.log('in handleClick');
     swal({
@@ -66,14 +56,7 @@ class App extends Component {
 
   }
 
-  // onDrop = (picture) => {
-  //   this.setState({
-  //     pictures: this.state.pictures.concat(picture)
-  //   })
-  //   console.log('in onDrop:', this.state.pictures);
-
-  // }
-
+  //SAVE THE UPLOADED FILE IN THE STATE
   handleChange = (event) => {
     let file = event.target.files[0]
     this.setState({
@@ -82,6 +65,7 @@ class App extends Component {
     console.log(event.target.files[0]);
   }
 
+  //DISPATCH THE FILE UPLOAD TO REDUX TO SEND TO SERVER
   handleFileUpload = () => {
     const data = new FormData();
     data.append('file', this.state.pictures)
@@ -99,20 +83,28 @@ class App extends Component {
     return (
       <>
         <div className="App">
+          <div className="navDiv">
           <h1>SPIKE APP</h1>
-          <br /><br /><br />
-          {/* <p><b>This uploader doesn't work, it' just looks pretty(react-images-upload)</b></p>
-          <ImageUpload /> */}
+          <br />
+          <div>
+            <h3>spikes in this app</h3>
+            <ul>
+              <li>cloudinary: cloud file upload</li>
+              <li>Good Reads API</li>
+              <li>SweetAlert for React</li>
+              <li>Material UI styling (Grids and Cards)</li>
+              <li>Moment.js to format dates and times</li>
+            </ul>
+          </div>
+          </div>
+          <br />
 
           {/* {JSON.stringify(this.state)} */}
 
           {/* {JSON.stringify(this.props.test)} */}
 
-
-
           <div>
             <Grid container spacing={3}>
-              {/* <Grid item xs={12}> */}
               <Grid item xs={4}>
                 <Grid item xs={12}>
                   <div className="cloudinaryDivs">
@@ -123,7 +115,7 @@ class App extends Component {
                 </Grid>
                 <Grid item xs={12}>
                   <div className="cloudinaryDivs">
-                    <h2><b>Displaying the url from cloudinary upload</b></h2>
+                    <h2><b>Displaying an url from cloudinary upload</b></h2>
                     <img className="image" src="http://res.cloudinary.com/dquorievt/image/upload/v1570288050/etakxagp8x8sbzqbmsy7.png" />
                   </div>
                 </Grid>
@@ -139,6 +131,7 @@ class App extends Component {
               <Grid item xs={8}>
                 <div>
                   <h2>Search books from Good Reads</h2>
+                  <p><i>see a fun sweet alert pop up</i></p>
                   <input type="text" placeholder="search book title or author" onChange={this.handleSearch} />
                   <button onClick={this.handleClick}>search</button>
 
@@ -154,7 +147,6 @@ class App extends Component {
                   })}
                 </div>
               </Grid>
-              {/* </Grid> */}
             </Grid>
           </div>
         </div>
