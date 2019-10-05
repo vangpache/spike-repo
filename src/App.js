@@ -108,50 +108,55 @@ class App extends Component {
 
           {/* {JSON.stringify(this.props.test)} */}
 
-        
 
-        <div>
-          <Grid container spacing={3}>
-            {/* <Grid item xs={12}> */}
-            <Grid item xs={4}>
-              <Grid item xs={12}>
-                <div>
-                  <p><b>upload an image to cloudinary</b></p>
-                  <input type="file" name="file" onChange={this.handleChange} /><br />
-                  <button onClick={this.handleFileUpload} >upload</button>
-                </div>
-              </Grid>
-              <Grid item xs={12}>
-                <div>
-                  <p><b>Displaying the url from cloudinary upload</b></p>
-                  <img className="image" src="http://res.cloudinary.com/dquorievt/image/upload/v1570288050/etakxagp8x8sbzqbmsy7.png" />
-                </div>
-              </Grid>
-            </Grid>
-            <Grid item xs={8}>
-              <div>
-                <h2>book getter test</h2>
-                <input type="text" placeholder="search book title or author" onChange={this.handleSearch} />
-                <button onClick={this.handleClick}>search</button>
-                <p><Moment format="LLLL">
-                  1976-04-19T12:59-0500
+
+          <div>
+            <Grid container spacing={3}>
+              {/* <Grid item xs={12}> */}
+              <Grid item xs={4}>
+                <Grid item xs={12}>
+                  <div className="cloudinaryDivs">
+                    <h2><b>upload an image to cloudinary</b></h2>
+                    <input type="file" name="file" onChange={this.handleChange} /><br />
+                    <button onClick={this.handleFileUpload} >upload</button>
+                  </div>
+                </Grid>
+                <Grid item xs={12}>
+                  <div className="cloudinaryDivs">
+                    <h2><b>Displaying the url from cloudinary upload</b></h2>
+                    <img className="image" src="http://res.cloudinary.com/dquorievt/image/upload/v1570288050/etakxagp8x8sbzqbmsy7.png" />
+                  </div>
+                </Grid>
+                <Grid item xs={12}>
+                  <div className="cloudinaryDivs">
+                    <h2><b>Moment.js to reformat dates and time</b></h2>
+                    <p><Moment format="LLLL">
+                      1976-04-19T12:59-0500
                       </Moment></p>
+                  </div>
+                </Grid>
+              </Grid>
+              <Grid item xs={8}>
+                <div>
+                  <h2>Search books from Good Reads</h2>
+                  <input type="text" placeholder="search book title or author" onChange={this.handleSearch} />
+                  <button onClick={this.handleClick}>search</button>
 
-                {this.props.test.map(each => {
-                  return (
-                    <>
-                      <p>{each.best_book.title._text}</p>
-                      <p>{each.best_book.author.name._text}</p>
-                      <img src={each.best_book.image_url._text} alt="insert description of book here" />
-                      <p>{each.original_publication_year._text}</p>
-                    </>
-                  )
-                })}
-              </div>
+                  {this.props.test.map(each => {
+                    return (
+                      <>
+                        <p>{each.best_book.title._text}</p>
+                        <p>{each.best_book.author.name._text}</p>
+                        <img src={each.best_book.image_url._text} alt="insert description of book here" />
+                        <p>{each.original_publication_year._text}</p>
+                      </>
+                    )
+                  })}
+                </div>
+              </Grid>
+              {/* </Grid> */}
             </Grid>
-            {/* </Grid> */}
-          </Grid>
-        </div>
+          </div>
         </div>
       </>
     );
