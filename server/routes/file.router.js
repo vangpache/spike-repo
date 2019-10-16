@@ -23,10 +23,7 @@ router.post('/', (req, res) => {
     cloudinary.uploader.upload(file.tempFilePath, (err, result) => {
        console.log('error', err);
        console.log('Result:', result);
-       res.send({
-           success: true,
-           result
-       })
+       res.send(result.url)
     })
 })
 

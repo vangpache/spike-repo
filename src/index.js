@@ -23,7 +23,13 @@ function* rootSaga() {
 ////SAGAS
 function* uploadFile(action) {
     try {
-        yield axios.post('/files', action.payload)
+        let response = yield axios.post('/files', action.payload)
+        console.log('uploaded image URL is:', response.data);
+        yield put({
+            type: 'SET_PROFILE_PICTURE',
+            payload: response.data
+        })
+        
     } catch (error) {
         console.log('error in uploadFile saga:', error);
     }

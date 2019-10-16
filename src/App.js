@@ -48,7 +48,7 @@ class App extends Component {
             payload: this.state.search
           })
         } else {
-          swal("your imaginary file is safe!");
+          swal("let us not search, then!");
         }
       })
 
@@ -115,8 +115,9 @@ class App extends Component {
                 </Grid>
                 <Grid item xs={12}>
                   <div className="cloudinaryDivs">
-                    <h2><b>Displaying an url from cloudinary upload</b></h2>
-                    <img className="image" src="http://res.cloudinary.com/dquorievt/image/upload/v1570288050/etakxagp8x8sbzqbmsy7.png" />
+                    <h2><b>Displaying the image upload from cloudinary upload</b></h2>
+                    <img className="image" src={this.props.upload}/>
+                   
                   </div>
                 </Grid>
                 <Grid item xs={12}>
@@ -160,7 +161,8 @@ class App extends Component {
 
 const mapStateToProps = reduxStore => {
   return {
-    test: reduxStore.books
+    test: reduxStore.books,
+    upload: reduxStore.profilePicture
   }
 }
 
