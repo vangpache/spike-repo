@@ -51,3 +51,6 @@ Before you get started, be sure to have the following software installed on your
 
 ### Sweet Alert2 with React
 ![](public/images/sweetAlert.png)
+
+# Author
+Pache Vang
