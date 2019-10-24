@@ -18,7 +18,6 @@ These instructions will get you a copy of the project up and running on your loc
 Before you get started, be sure to have the following software installed on your computer:
 - [Node.js](https://nodejs.org/en/)
 - [Nodemon](https://nodemon.io/)
-- [PostrgeSQL](https://www.postgresql.org/)
 - HomeBrew or equivalent
 - Create a free [Good Reads](https://www.goodreads.com/api) account and API_KEY
 - Create a free [Cloudinary](https://cloudinary.com)
