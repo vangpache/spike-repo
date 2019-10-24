@@ -28,6 +28,7 @@ Before you get started, be sure to have the following software installed on your
 - [Cloudinary](https://cloudinary.com) to store image uploads on the cloud
 - [Moment.js](https://momentjs.com) to format dates and time
 - [SweetAlert2-React](https://www.npmjs.com/package/sweetalert2-react)
+- [Material UI](https://material-ui.com) (Grids)
 
 ## Installing
 1. Download this project.
