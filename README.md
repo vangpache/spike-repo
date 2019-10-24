@@ -45,3 +45,9 @@ Before you get started, be sure to have the following software installed on your
 5. `npm run client`
 6. `npm run server`
 7. Navigate to `localhost:3000`
+
+### Landing Page
+![](public/images/landingPage.png)
+
+### Sweet Alert2 with React
+![](public/images/sweetAlert.png)
